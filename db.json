@@ -1,14 +1,6 @@
 {
   "contact": [
     {
-      "name": "Ali Kaya",
-      "position": "Frontend Developer",
-      "company": "Udemig",
-      "phone": "+90 555 666 77 88",
-      "email": "alikaya@gmail.com",
-      "id": "sdf345"
-    },
-    {
       "id": "abc123",
       "name": "Ayşe Yıldız",
       "position": "Software Engineer",
@@ -71,14 +63,6 @@
       "phone": "+90 536 111 22 33",
       "email": "ezgikoc@userfirst.com",
       "id": "PIs_p7s"
-    },
-    {
-      "name": "Meryem uludağlı",
-      "position": "SoftwareEng",
-      "company": "fesdewd",
-      "phone": "feeddf",
-      "email": "gfrerereg",
-      "id": "zgJ0qHv"
     }
   ]
 }

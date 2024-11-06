@@ -7,7 +7,6 @@ import { MdPersonAddAlt1 } from "react-icons/md";
 import Card from "./components/Card";
 import Modal from "./components/Modal";
 
-// axioss'Un temel url ayarı
 axios.defaults.baseURL = "http://localhost:3000";
 
 const App = () => {
@@ -15,55 +14,31 @@ const App = () => {
   const [editItem, setEditItem] = useState(null);
   const [contacts, setContacts] = useState([]);
 
-  // bileşenin ekrana basılma anını izle
   useEffect(() => {
-    // api'a rehber veileri için istek at
     axios.get("/contact").then((res) => setContacts(res.data));
   }, []);
 
-  // form gönderilince
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // inputtaki metni ak
     const text = e.target[1].value;
-
-    // api'a gönderilcek parametreleri belirle
     const params = {
       q: text,
     };
-
-    // api'dan aratılan metne uygun verileri al
-    axios
-      .get("/contact", { params }) //
-      .then((res) => setContacts(res.data));
+    axios.get("/contact", { params }).then((res) => setContacts(res.data));
   };
-
-  // sil butonuna tıklanınca
   const handleDelete = (id) => {
     const res = confirm("Kişiyi silmek istediğinizden emin misiniz?");
 
     if (res) {
-      // api'a silme isteği at
-      axios
-        .delete(`/contact/${id}`)
-        // api isteği başarılı olursa state'i güncelle
-        .then(() => {
-          // diziden elemanı kaldır
-          const updated = contacts.filter((contact) => contact.id !== id);
-
-          // statei güncelle
-          setContacts(updated);
-        });
+      axios.delete(`/contact/${id}`).then(() => {
+        const updated = contacts.filter((contact) => contact.id !== id);
+        setContacts(updated);
+      });
     }
   };
-
-  // düzenle butonuna tıklanınca
   const handleEdit = (contact) => {
-    // düznelenicek elemanı state'e aktar
     setEditItem(contact);
-
-    // modalı açar
     setIsModalOpen(true);
   };
 
